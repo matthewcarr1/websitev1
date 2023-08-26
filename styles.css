@@ -32,15 +32,17 @@ body {
     display: flex;
     justify-content: space-around;
     border: solid red 1px;
+    padding: 8px 0;
 }
 .navbar img{
-  width: 100px;
+  width: 200px;
   height: auto;
+  border: solid red 1px;
 }
 .navbar a {
     float: left;
     display: flex;
-    color: white;
+    color: #F5F5F5;
     align-items: center;
     align-content: center;
     padding: 14px 16px;
