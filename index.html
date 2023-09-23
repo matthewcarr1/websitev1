@@ -35,14 +35,11 @@
         // Find all the prefixes and items.
         const storage = getStorage(app);
         const listRef = ref(storage, 'images');
+
         listAll(listRef)
-        .then((res) => {
-            res.prefixes.forEach((folderRef) => {
-            // All the prefixes under listRef.
-            // You may call listAll() recursively on them. can also insert the columns as ID's rather than classes and assign images to them in a for loop.
-            });
-            res.items.forEach((itemRef) => {
-            // All the items under listRef.
+        .then((result) => {
+            result.items.forEach((itemRef) => {
+                console.log("File:", itemRef.fullPath);
             });
         }).catch((error) => {
             // Uh-oh, an error occurred!
@@ -151,6 +148,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div id="gallery">
+
     </div>
     <div class="footer">
         <a href="https://www.instagram.com/matthewcarrphotography/" target="_blank" >
