@@ -11,7 +11,7 @@
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
-        import { getStorage, ref, listAll } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
+        import { getStorage, ref, listAll,getDownloadURL } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
@@ -36,14 +36,38 @@
         const storage = getStorage(app);
         const listRef = ref(storage, 'images');
 
+        const columnIds = ['column1', 'column2','column3'];
+        let columnIndex = 0; 
+
         listAll(listRef)
         .then((result) => {
             result.items.forEach((itemRef) => {
                 console.log("File:", itemRef.fullPath);
+                getDownloadURL(itemRef)
+                .then((url) => {
+                    // Create an <img> element for each file and set its 'src' attribute
+                    console.log(url)
+                    const imgElement = document.createElement('img');
+                    imgElement.src = url;
+                    imgElement.alt = "Image"; // You can set an alt attribute for accessibility
+                    console.log("url:", itemRef.fullPath)
+
+                    // Append the <img> element to the 'gallery' div
+                    const currentColumnId = columnIds[columnIndex];
+                    const currentColumn = document.getElementById(currentColumnId)
+                    currentColumn.appendChild(imgElement)
+
+                    // Rotate to the next column (cyclically)
+                    columnIndex = (columnIndex + 1) % columnIds.length;
+                })
+                .catch((error) => {
+                    console.error("Error getting download URL:", error);
+                });
             });
         }).catch((error) => {
             // Uh-oh, an error occurred!
         });
+
     </script>
 </head>
 <body>
@@ -90,67 +114,22 @@
         </div>
     </div>
     <div class="container">
-        <h1>Welcome to My Photo Gallery</h1>
+        <h1>Welcome to My Portfolio Gallery</h1>
         <p>Scroll down to view the images.</p>
-        <div class="image-gallery">
+        <div id="dynamic_gallery" class="image-gallery">
+            <div id="column1" class="column"></div>
+            <div id="column2" class="column"></div>
+            <div id="column3" class="column"></div>
+        </div>
+
+        <!-- <div class="image-gallery">
           <div class="column">
                 <div class="image-item">
                     <img src="images/1.jpg" alt="" />
                     <div class="overlay"><span>Image title</span></div>
                 </div>
-                <div class="image-item">
-                    <img src="images/2.jpg" alt="" />
-                    <div class="overlay"><span>Image title</span></div>
-                </div>
-                <div class="image-item">
-                    <img src="images/3.jpg" alt="" />
-                    <div class="overlay"><span>Image title</span></div>
-                </div>
-                <div class="image-item">
-                    <img src="images/12.jpg" alt="" />
-                    <div class="overlay"><span>Image title</span></div>
-                </div>
             </div>
-            <div class="column">
-                <div class="image-item">
-                    <img src="images/4.jpg" alt="" />
-                    <div class="overlay"><span>Image title</span></div>
-                </div>
-                <div class="image-item">
-                    <img src="images/5.jpg" alt="" />
-                    <div class="overlay"><span>Image title</span></div>
-                </div>
-                <div class="image-item">
-                    <img src="images/6.jpg" alt="" />
-                    <div class="overlay"><span>Image title</span></div>
-                </div>
-                <div class="image-item">
-                    <img src="images/7.jpg" alt="" />
-                    <div class="overlay"><span>Image title</span></div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="image-item">
-                    <img src="images/8.jpg" alt="" />
-                    <div class="overlay"><span>Image title</span></div>
-                </div>
-                <div class="image-item">
-                    <img src="images/9.jpg" alt="" />
-                    <div class="overlay"><span>Image title</span></div>
-                </div>
-                <div class="image-item">
-                    <img src="images/10.jpg" alt="" />
-                    <div class="overlay"><span>Image title</span></div>
-                </div>
-                <div class="image-item">
-                    <img src="images/11.jpg" alt="" />
-                    <div class="overlay"><span>Image title</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="gallery">
-
+        </div> -->
     </div>
     <div class="footer">
         <a href="https://www.instagram.com/matthewcarrphotography/" target="_blank" >

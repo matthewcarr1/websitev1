@@ -5,7 +5,6 @@
     color: #F5F5F5;
     /* border: solid red 1px; */
   }
-
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -65,6 +64,7 @@ body {
   color: #F5F5F5;
   text-align: center;
   padding: 20px;
+  text-shadow: 0 3px 3px black;
 }
 
 .portfolio-dropdown {
@@ -131,8 +131,7 @@ body {
     gap: 10px;
     /* border: solid red 1px; */
   }
-  
-  .image-item img {
+  .column img{
     width: 100%;
     border-radius: 10px;
     height: 100%;
