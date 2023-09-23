@@ -5,6 +5,10 @@
     color: #F5F5F5;
     /* border: solid red 1px; */
   }
+p.{
+  text-decoration: none;
+  
+}
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -174,6 +178,9 @@ body {
   .MobileHeader{
     display: none;
   }
+  .mobileNavBar{
+    display: none;
+  }
 }
   
 @media screen and (max-width: 768px) {
@@ -183,22 +190,89 @@ body {
   .header-blurb {
     display: none;
   }
-  .MobileHeader img {
-    width: 100px;
-  height: auto;
-  }
+
   .MobileHeader{
     overflow: hidden;
     position: absolute;
     z-index: 1;
     width: 100%;
   }
-  
+  .topnav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+  }
+  .mobilelogocontainer img {
+    max-width: 130px;
+    height: auto;
+  }
+  .faBarsIcon{
+    font-size: 25;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+  .menu-text{
+    text-decoration: none;
+  }
+  /* Mobile nav bar dropdown elements */
+  .mobileNavBar{
+    height: 0;
+    width: 100%;
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0); /* Black fallback color */
+    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+  }
+  .overlay-content {
+    position: relative;
+    top: 25%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  }
+  /* The navigation links inside the overlay */
+  .mobileNavBar a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+  }
+  /* When you mouse over the navigation links, change their color */
+  .mobileNavBar a:hover, .mobileNavBar a:focus {
+    color: #f1f1f1;
+  }
+  .mobileNavBar .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 50px;
+    color: #818181;
+    transition: 0.3s; /* Transition effects on hover (color) */
+  }
+  /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+  @media screen and (max-height: 450px) {
+    .mobileNavBar a {font-size: 20px}
+    .mobileNavBar .closebtn {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+    }
+  }
 }
 /* About Me page */
 .aboutme {
   /* border: solid red 1px; */
   background-color: rgb(18, 18, 18);
+  margin: 15px;
 }
 .aboutme h2{
   padding: 20px 10px;

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photo Gallery</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="bg-image">
@@ -26,6 +28,33 @@
         </div>
         <div class="header-blurb">
             <h1>Adventure and Lifestyle Photographer</h1>
+        </div>
+        <div class="MobileHeader">
+            <header class="topnav">
+                <div class="mobilelogocontainer">
+                    <a href="index.html">
+                        <img src="images/ClearMountain Image.png" alt="">
+                    </a>
+                </div>
+                <a href="javascript:void(0);" class="faBarsIcon" onclick="openNav()">
+                    <p class="menu-text">Menu</p>
+                    <i class="fa fa-bars fa-lg"></i>
+                </a>
+            </header>
+        </div>
+    </div>
+    <div id="mobileNav" class="mobileNavBar">
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+            <i class="fa fa-window-close"></i>
+        </a>
+
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <a href="#">Portfolio</a>
+            <a href="about_me.html">About</a>
+            <a href="#">Trip Report</a>
+            <a href="#">Contact</a>
         </div>
     </div>
     <div class="aboutme">
