@@ -32,7 +32,7 @@
 
         // Find all the prefixes and items.
         const storage = getStorage(app);
-        const listRef = ref(storage, 'images');
+        const listRef = ref(storage, 'mainGalleryImages/thumbnails');
 
         const columnIds = ['column1', 'column2','column3'];
         let columnIndex = 0; 
@@ -91,8 +91,15 @@
                         <img src="images/ClearMountain Image.png" alt="">
                     </a>
                 </div>
-                <a href="#">Trip Report</a>
-                <a href="#">Contact</a>
+                <div class="portfolio-dropdown">
+                    <button class="dropbtn">Trip Report
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="nz_trip.html">New Zealand</a>
+                    </div>
+                </div>
+                <a href="contact.html">Contact</a>
             </div>
         </Div>
         <div class="header-blurb">
@@ -122,8 +129,8 @@
         <div class="overlay-content">
             <a href="#">Portfolio</a>
             <a href="about_me.html">About</a>
-            <a href="#">Trip Report</a>
-            <a href="#">Contact</a>
+            <a href="nz_trip.html">Trip Report</a>
+            <a href="contact.html">Contact</a>
         </div>
     </div>
     <div class="container">

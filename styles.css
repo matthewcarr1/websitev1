@@ -54,7 +54,7 @@ body {
     align-content: center;
     padding: 14px 16px;
     text-decoration: none;
-    /* border: solid red 1px; */
+    border: solid red 1px;
 }
 .navbar a:hover {
     background-color: #ddd;
@@ -74,9 +74,7 @@ body {
 .portfolio-dropdown {
   float: left;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  align-content: center;
+  border: solid red 1px;
 }
 
 /* Dropdown button */
@@ -84,6 +82,7 @@ body {
   font-size: 16px;
   border: none;
   outline: none;
+  height:125.81px ;
   color: white;
   padding: 14px 16px;
   background-color: inherit;
