@@ -320,6 +320,38 @@ body {
   width: 35px;
   height: auto;
 }
+
+/* nz story formatting */
+.nz-image-container {
+  position: relative; /* Enable positioning of child elements relative to this container */
+  display: flex;
+  align-items: center;
+  border: solid blue 1px;
+  /* margin-left: 100px; */
+  margin: 0px 30px 0 100px;
+  padding: 20px 20px 20px 20px;
+  justify-content: end;
+}
+
+.nz-image-container h1 {
+  position: absolute; /* Allows overlap positioning */
+  top: 50%; /* Adjust the top value to control vertical overlap */
+  left: 5%; /* Adjust left value to control horizontal positioning */
+  /* background: rgba(255, 255, 255, 0.1);  */
+  padding: 10px; /* Optional: Add padding for better appearance */
+  z-index: 10; /* Ensure it appears above the image */
+  border: solid red 1px;
+  width: 40%;
+}
+
+.nz-image-container img {
+  max-width: 80%;
+  height: auto;
+  z-index: 1; /* Image stays behind the heading */
+  justify-content: end;
+}
+
+
 /* Test for timeline */
 .whole-timeline {
   display: flex;
@@ -335,27 +367,62 @@ body {
     position: absolute;
     z-index: 1;
 }
+
+.trip-description {
+  display: flex;
+  align-items: center; /* Vertically aligns the content */
+  justify-content: flex-end; /* Ensures everything aligns to the right */
+  padding: 20px;
+  height: 100%; /* Ensure it takes the full height of the container (if needed) */
+}
+
+.nz-1 {
+  border: solid red 1px;
+  max-width: 50%; /* Control the width of the paragraph container */
+  margin-left: auto; /* Push content to the right */
+  padding-right: 8%;
+}
+
+.trip-description p {
+  text-align: left; 
+  line-height: 2;
+}
+
+.nz-photo {
+  position: relative;
+}
 .nz-photo img {
   max-width: 100%;
   height: auto;
+}
+.nz-photo::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Dark shading overlay */
+  pointer-events: none; /* Allows interaction with the image */
 }
 
 .year-list {
   width: 150px; /* Fixed width for year list */
   /* background: #333; */
-  color: white;
+  color: #F5F5F5;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px 10px;
-  border-right: 3px solid #8D8E8E ;
+  border-right: 1px solid #F5F5F5 ;
+  justify-content: center;
 }
 
 .year-list button {
   background: none;
-  color: white;
+  color: #F5F5F5;
   border: none;
-  padding: 10px;
+  padding: 20px;
   margin: 5px 0;
   font-size: 1em;
   cursor: pointer;
@@ -394,17 +461,17 @@ body {
 
 .slide h2 {
   font-size: 2em;
-  color: #333;
+  color: #F5F5F5;
   margin-bottom: 10px;
 }
 
 .slide p {
   font-size: 1em;
-  color: #555;
+  color: #F5F5F5;
 }
 
 /* Responsive Styles */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .timeline-container {
       flex-direction: column;
   }
