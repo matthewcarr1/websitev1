@@ -352,7 +352,43 @@ body {
 }
 
 
-/* Test for timeline */
+/* Components for trip summary */
+
+.trip-description {
+  display: flex;
+  align-items: center; /* Vertically aligns the content */
+  justify-content: flex-end; /* Ensures everything aligns to the right */
+  padding: 70px 40px;
+  height: 100%; /* Ensure it takes the full height of the container (if needed) */
+  position: relative;
+}
+.trip-description::before {
+  content: ''; /* Creates a pseudo-element */
+  position: absolute; /* Position relative to .trip-description */
+  left: 149px; /* Adjust the inset position from the left */
+  top: 30%;
+  bottom: 0;
+  width: 1px; /* Width of the vertical line */
+  background-color: #F5F5F5; /* Color of the line */
+  background: linear-gradient(to top, #F5F5F5, rgba(204, 204, 204, 0)); /* Fading gradient */
+}
+.trip-description h2{
+  padding: 10px;
+}
+.trip-description p {
+  text-align: left; 
+  line-height: 2;
+  font-family: sans-serif;
+  padding: 10px;
+}
+.nz-1 {
+  border: solid red 1px;
+  max-width: 50%; /* Control the width of the paragraph container */
+  margin-left: auto; /* Push content to the right */
+  padding-right: 8%;
+}
+
+/* Timeline components */
 .whole-timeline {
   display: flex;
   position: relative;
@@ -367,27 +403,6 @@ body {
     position: absolute;
     z-index: 1;
 }
-
-.trip-description {
-  display: flex;
-  align-items: center; /* Vertically aligns the content */
-  justify-content: flex-end; /* Ensures everything aligns to the right */
-  padding: 20px;
-  height: 100%; /* Ensure it takes the full height of the container (if needed) */
-}
-
-.nz-1 {
-  border: solid red 1px;
-  max-width: 50%; /* Control the width of the paragraph container */
-  margin-left: auto; /* Push content to the right */
-  padding-right: 8%;
-}
-
-.trip-description p {
-  text-align: left; 
-  line-height: 2;
-}
-
 .nz-photo {
   position: relative;
 }
